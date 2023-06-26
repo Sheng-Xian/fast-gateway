@@ -1,2 +1,2 @@
 # API Gateway 
-A High-performance and High-concurrency API gateway Based on Native Java
+A High-performance and High-concurrency API gateway Based on Java
