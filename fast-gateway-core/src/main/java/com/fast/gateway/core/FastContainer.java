@@ -31,7 +31,7 @@ public class FastContainer {
         if (FastBufferHelper.isFlusher(bufferType)) {
             nettyProcessor = new NettyBatchEventProcess(fastConfig, nettyCoreProcessor);
         } else if (FastBufferHelper.isMpmc(bufferType)) {
-            this.nettyProcessor = new NettyMpmcProcessor(fastConfig, nettyCoreProcessor);
+            this.nettyProcessor = new NettyMpmcProcessor(fastConfig, nettyCoreProcessor, true);
         } else {
             nettyProcessor = nettyCoreProcessor;
         }

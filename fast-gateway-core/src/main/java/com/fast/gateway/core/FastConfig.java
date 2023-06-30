@@ -1,6 +1,9 @@
 package com.fast.gateway.core;
+
 import com.fast.gateway.common.constants.BasicConst;
+import com.fast.gateway.common.constants.FastBufferHelper;
 import com.fast.gateway.common.util.NetUtils;
+import com.lmax.disruptor.*;
 import lombok.Data;
 
 /**
@@ -9,70 +12,85 @@ import lombok.Data;
  */
 @Data
 public class FastConfig {
-    //	网关的默认端口
+    // Default port for the gateway
     private int port = 8888;
 
-    //	网关服务唯一ID： rapidId  192.168.11.111:8888
+    // Unique ID for the gateway service: rapidId  192.168.11.111:8888
     private String fastId = NetUtils.getLocalIp() + BasicConst.COLON_SEPARATOR + port;
 
-    //	网关的注册中心地址
+    // Address of the gateway's registration center
     private String registerAddress = "http://192.168.11.114:2379,http://192.168.11.115:2379,http://192.168.11.116:2379";
 
-    //	网关的命名空间：dev test prod
+    // Namespace for the gateway: dev, test, prod
     private String nameSpace = "fast-dev";
 
-    //	网关服务器的CPU核数映射的线程数
+    // Number of threads mapped to the CPU cores of the gateway server
     private int processThread = Runtime.getRuntime().availableProcessors();
 
-    // 	Netty的Boss线程数
+    // Number of Netty's Boss threads
     private int eventLoopGroupBossNum = 1;
 
-    //	Netty的Work线程数
+    // Number of Netty's Work threads
     private int eventLoopGroupWorkNum = processThread;
 
-    //	是否开启EPOLL
+    // Enable EPOLL (Linux-specific transport) if available
     private boolean useEPoll = true;
 
-    //	是否开启Netty内存分配机制
+    // Enable Netty's memory allocation mechanism
     private boolean nettyAllocator = true;
 
-    //	http body报文最大大小
+    // Maximum size of HTTP body content
     private int maxContentLength = 67108864;
 
-    //	dubbo开启连接数数量
+    // Number of Dubbo connections to open
     private int dubboConnections = processThread;
 
-    //	设置响应模式, 默认是单异步模式：CompletableFuture回调处理结果： whenComplete  or  whenCompleteAsync
+    // Set the response mode, default is single asynchronous mode using CompletableFuture callbacks: whenComplete or whenCompleteAsync
     private boolean whenComplete = true;
 
-    //	网关队列配置：缓冲模式；
-    private String bufferType = ""; // FastBufferHelper.FLUSHER;
+    // Gateway queue configuration: buffering mode
+    private String bufferType = FastBufferHelper.MPMC; //FLUSHER
 
-    //	网关队列：内存队列大小
+    // Gateway queue: size of the in-memory queue
     private int bufferSize = 16384;
 
-    //	网关队列：阻塞/等待策略
+    // Gateway queue: blocking/wait strategy
     private String waitStrategy = "blocking";
 
+    public WaitStrategy getATrueWaitStrategy() {
+        switch (waitStrategy) {
+            case "blocking":
+                return new BlockingWaitStrategy();
+            case "busySpin":
+                return new BusySpinWaitStrategy();
+            case "sleep":
+                return new SleepingWaitStrategy();
+            case "yielding" :
+                return new YieldingWaitStrategy();
+            default:
+                return new BlockingWaitStrategy();
+        }
+    }
 
-    //	Http Async 参数选项：
+    // Http Async parameters:
 
-    //	连接超时时间
+    // Connection timeout
     private int httpConnectTimeout = 30000;
 
-    //	请求超时时间
+    // Request timeout
     private int httpRequestTimeout = 30000;
 
-    //	客户端请求重试次数
+    // Maximum number of request retries for the client
     private int httpMaxRequestRetry = 2;
 
-    //	客户端请求最大连接数
+    // Maximum number of client connections
     private int httpMaxConnections = 10000;
 
-    //	客户端每个地址支持的最大连接数
+    // Maximum number of connections per host for the client
     private int httpConnectionsPerHost = 8000;
 
-    //	客户端空闲连接超时时间, 默认60秒
+    // Idle connection timeout for pooled connections, default is 60 seconds
     private int httpPooledConnectionIdleTimeout = 60000;
+
 
 }

@@ -7,7 +7,7 @@ import com.fast.gateway.core.context.HttpRequestWrapper;
  * @create 2023-06-20 17:29
  */
 public interface NettyProcessor {
-    public void process(HttpRequestWrapper httpRequestWrapper);
-    public void start();
-    public void shutdown();
+    void process(HttpRequestWrapper httpRequestWrapper) throws Exception;
+    void start();
+    void shutdown();
 }
