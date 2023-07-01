@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  * @create 2023-06-21 0:44
  */
 @Slf4j
-public class NettyHttpServerHandler extends ChannelInboundHandlerAdapter {
+public class NettyHttpServerHandler extends ChannelInboundHandlerAdapter { // The NettyHttpServerHandler doesn't release automatically.
     private NettyProcessor nettyProcessor;
     public NettyHttpServerHandler(NettyProcessor nettyProcessor) {
         this.nettyProcessor = nettyProcessor;
