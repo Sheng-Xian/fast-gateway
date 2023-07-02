@@ -35,7 +35,7 @@ public interface Context {
 
     boolean isTerminated();
 
-    String getProtocal();
+    String getProtocol();
 
     Object getRule();
 
