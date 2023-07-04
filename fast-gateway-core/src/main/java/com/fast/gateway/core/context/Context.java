@@ -1,5 +1,6 @@
 package com.fast.gateway.core.context;
 
+import com.fast.gateway.common.config.Rule;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.function.Consumer;
@@ -37,7 +38,7 @@ public interface Context {
 
     String getProtocol();
 
-    Object getRule();
+    Rule getRule();
 
     Object getRequest();
 
