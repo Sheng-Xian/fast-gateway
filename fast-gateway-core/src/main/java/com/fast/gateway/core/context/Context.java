@@ -45,7 +45,7 @@ public interface Context {
     Object getResponse();
 
     //Builder to build request, through Context to set Response
-    void setResponse(Object Response);
+    void setResponse(Object response);
 
     void setThrowable(Throwable throwable);
 
