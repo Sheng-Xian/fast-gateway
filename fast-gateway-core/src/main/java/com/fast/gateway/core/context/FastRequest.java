@@ -25,6 +25,10 @@ import java.util.*;
 @Slf4j
 public class FastRequest implements FastRequestMutable{
 
+    /**
+     * The parameter uniqueId must exit in header
+     * serviceId:version
+     */
     @Getter
     private final String uniqueId;
 
@@ -182,7 +186,7 @@ public class FastRequest implements FastRequestMutable{
 
     public io.netty.handler.codec.http.cookie.Cookie getCookie(String name) {
         if (cookieMap == null) {
-            cookieMap = new HashMap<String, io.netty.handler.codec.http.cookie.Cookie>();
+            cookieMap = new HashMap<>();
             String cookieStr = getHeaders().get(HttpHeaderNames.COOKIE);
             Set<io.netty.handler.codec.http.cookie.Cookie> cookies = ServerCookieDecoder.STRICT.decode(cookieStr);
             for (io.netty.handler.codec.http.cookie.Cookie cookie: cookies) {

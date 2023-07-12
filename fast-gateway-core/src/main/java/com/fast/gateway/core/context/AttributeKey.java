@@ -1,5 +1,7 @@
 package com.fast.gateway.core.context;
 
+import com.fast.gateway.common.config.ServiceInvoker;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -11,6 +13,8 @@ import java.util.Set;
 public abstract class AttributeKey<T> {
     private static final Map<String, AttributeKey<?>> namedMap = new HashMap<>();
     public static final AttributeKey<Set<String>> MATCH_ADDRESS = create(Set.class);
+    public static final AttributeKey<ServiceInvoker> HTTP_INVOKER = create(ServiceInvoker.class);
+    public static final AttributeKey<ServiceInvoker> DUBBO_INVOKER = create(ServiceInvoker.class);
 
     static {
         namedMap.put("MATCH_ADDRESS", MATCH_ADDRESS);

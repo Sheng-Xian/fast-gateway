@@ -49,7 +49,7 @@ public class FastConfig {
     private boolean whenComplete = true;
 
     // Gateway queue configuration: buffering mode
-    private String bufferType = FastBufferHelper.MPMC; //FLUSHER
+    private String bufferType = FastBufferHelper.FLUSHER; //FLUSHER
 
     // Gateway queue: size of the in-memory queue
     private int bufferSize = 16384;

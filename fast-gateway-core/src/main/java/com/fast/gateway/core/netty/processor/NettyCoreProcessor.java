@@ -1,6 +1,8 @@
 package com.fast.gateway.core.netty.processor;
 
+import com.fast.gateway.core.context.FastContext;
 import com.fast.gateway.core.context.HttpRequestWrapper;
+import com.fast.gateway.core.helper.RequestHelper;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 
@@ -15,6 +17,7 @@ public class NettyCoreProcessor implements NettyProcessor{
         ChannelHandlerContext ctx = event.getCtx();
         try {
             // 1. parse FullHttpRequest
+            FastContext fastContext = RequestHelper.doContext(request, ctx);
             // 2. execute FilterChain
             System.out.println("Received HTTP request");
         } catch (Throwable t) {

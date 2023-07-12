@@ -21,7 +21,7 @@ public enum ResponseCode {
 
     PATH_NO_MATCHED(HttpResponseStatus.NOT_FOUND, 10002,"No matching path found, request failed quickly"),
 
-    SERVICE_DEFINITION_NOT_FOUND(HttpResponseStatus.NOT_FOUND, 10003,"Service definition not found"),
+    SERVICE_NOT_FOUND(HttpResponseStatus.NOT_FOUND, 10003,"Service is not found"),
 
     SERVICE_INVOKER_NOT_FOUND(HttpResponseStatus.NOT_FOUND, 10004,"Service invoker not found"),
 
