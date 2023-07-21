@@ -11,8 +11,7 @@ import java.util.Objects;
  * @create 2023-07-10 16:07
  */
 @Data
-public class
-Service implements Serializable {
+public class Service implements Serializable {
 
     private static final long serialVersionUID = -1433648875048312939L;
 

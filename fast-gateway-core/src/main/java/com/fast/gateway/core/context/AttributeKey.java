@@ -18,6 +18,8 @@ public abstract class AttributeKey<T> {
 
     static {
         namedMap.put("MATCH_ADDRESS", MATCH_ADDRESS);
+        namedMap.put("HTTP_INVOKER", HTTP_INVOKER);
+        namedMap.put("DUBBO_INVOKER", DUBBO_INVOKER);
     }
 
     public abstract T cast(Object value);
