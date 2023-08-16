@@ -9,6 +9,10 @@
     <file url="file://$PROJECT_DIR$/fast-gateway-console/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fast-gateway-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fast-gateway-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fast-gateway-discovery/fast-gateway-discovery-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fast-gateway-discovery/fast-gateway-discovery-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fast-gateway-discovery/fast-gateway-discovery-etcd/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fast-gateway-discovery/fast-gateway-discovery-etcd/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fast-gateway-discovery/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fast-gateway-discovery/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

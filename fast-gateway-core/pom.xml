@@ -12,10 +12,9 @@
     <artifactId>fast-gateway-core</artifactId>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fast-gateway-common.version>1.0.0</fast-gateway-common.version>
+        <fast-gateway-discovery-api.version>1.0.0</fast-gateway-discovery-api.version>
+        <fast-gateway-discovery-etcd.version>1.0.0</fast-gateway-discovery-etcd.version>
         <zookeeper.version>3.4.11</zookeeper.version>
         <dubbo.version>2.7.4.1</dubbo.version>
     </properties>
@@ -111,17 +110,17 @@
             </exclusions>
         </dependency>
 
-<!--        &lt;!&ndash; Registry Center &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.sheng</groupId>-->
-<!--            <artifactId>fast-gateway-discovery-api</artifactId>-->
-<!--            <version>${fast-gateway-discovery-api.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.sheng</groupId>-->
-<!--            <artifactId>fast-gateway-discovery-etcd</artifactId>-->
-<!--            <version>${fast-gateway-discovery-etcd.version}</version>-->
-<!--        </dependency>-->
+        <!-- Registry Center -->
+        <dependency>
+            <groupId>io.sheng</groupId>
+            <artifactId>fast-gateway-discovery-api</artifactId>
+            <version>${fast-gateway-discovery-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.sheng</groupId>
+            <artifactId>fast-gateway-discovery-etcd</artifactId>
+            <version>${fast-gateway-discovery-etcd.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -140,8 +139,8 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>make-assembly</id> <!-- 此处指定继承合并 -->
-                        <phase>package</phase> <!-- 绑定到打包阶段 -->
+                        <id>make-assembly</id> <!-- Inheritance merge is specified here -->
+                        <phase>package</phase> <!-- Bind to the packaging phase -->
                         <goals>
                             <goal>single</goal>
                         </goals>

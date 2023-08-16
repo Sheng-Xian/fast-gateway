@@ -12,9 +12,79 @@
     <artifactId>fast-gateway-client</artifactId>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fast-gateway-common.version>1.0.0</fast-gateway-common.version>
+        <fast-gateway-discovery-api.version>1.0.0</fast-gateway-discovery-api.version>
+        <fast-gateway-discovery-etcd.version>1.0.0</fast-gateway-discovery-etcd.version>
+        <dubbo.version>2.7.4.1</dubbo.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.sheng</groupId>
+            <artifactId>fast-gateway-common</artifactId>
+            <version>${fast-gateway-common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+        </dependency>
+        <!--Optional dependencies-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.1.7.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>2.0.4.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Registry Center -->
+        <dependency>
+            <groupId>io.sheng</groupId>
+            <artifactId>fast-gateway-discovery-api</artifactId>
+            <version>${fast-gateway-discovery-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.sheng</groupId>
+            <artifactId>fast-gateway-discovery-etcd</artifactId>
+            <version>${fast-gateway-discovery-etcd.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

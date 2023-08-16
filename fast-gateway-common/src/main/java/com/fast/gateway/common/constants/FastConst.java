@@ -10,7 +10,14 @@ public interface FastConst {
 
     String UNIQUE_ID = "uniqueId";
 
-    String default_version = "1.0.0";
+    String DEFAULT_VERSION = "1.0.0";
 
     String PROTOCOL_KEY = "protocol";
+
+    /**
+     * Default instance weight
+     */
+    int DEFAULT_WEIGHT = 100;
+
+    int DEFAULT_REQUEST_TIMEOUT = 2000;
 }
